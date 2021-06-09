@@ -23,6 +23,9 @@ RUN curl https://rclone.org/install.sh | sudo bash
 RUN sudo curl -fsSL https://deb.nodesource.com/setup_15.x | sudo bash -
 RUN sudo apt-get install -y nodejs
 
+# Install make
+RUN sudo apt-get install -y make
+
 # Fix permissions for code-server
 RUN sudo chown -R coder:coder /home/coder/.local
 
