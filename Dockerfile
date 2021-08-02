@@ -25,7 +25,6 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # Install Node support 
 RUN sudo curl -fsSL https://deb.nodesource.com/setup_15.x | sudo bash -
 RUN sudo apt-get install -y nodejs
-RUN code-server --install-extension vscode.typescript
 RUN code-server --install-extension Orta.vscode-jest
 
 # Install python support
