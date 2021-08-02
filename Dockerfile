@@ -19,15 +19,18 @@ RUN curl https://rclone.org/install.sh | sudo bash
 # RUN sudo apt-get install -y build-essential
 # RUN COPY myTool /home/coder/myTool
 
+# Fix permissions for code-server
+RUN sudo chown -R coder:coder /home/coder/.local
+
 # Install Node support 
 RUN sudo curl -fsSL https://deb.nodesource.com/setup_15.x | sudo bash -
 RUN sudo apt-get install -y nodejs
+RUN code-server --install-extension vscode.typescript
+RUN code-server --install-extension Orta.vscode-jest
 
 # Install python support
 RUN sudo apt-get install -y python3 python3-venv make
-
-# Fix permissions for code-server
-RUN sudo chown -R coder:coder /home/coder/.local
+RUN code-server --install-extension ms-python.python
 
 # Port
 ENV PORT=8080
